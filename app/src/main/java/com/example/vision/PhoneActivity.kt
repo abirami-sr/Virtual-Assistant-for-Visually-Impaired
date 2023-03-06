@@ -96,7 +96,10 @@ class PhoneActivity : AppCompatActivity(), View.OnClickListener,
                     111
                 )
             } else {
-                speak("calling " + editTextPhone2.text.toString())
+                val digits = arrayOf("zero", "one", "two", "three", "four","five", "six", "seven", "eight", "nine")
+                val phone = editTextPhone2.text.toString()
+                val result = phone.map { digits[it.toString().toInt()] }.joinToString(" ")
+                speak("calling$result")
                 Thread.sleep(5000)
                 startCall()
             }
